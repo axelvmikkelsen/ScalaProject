@@ -1,5 +1,6 @@
 *.git
 *.project
 /delivery/tasks/testing.scala
-/delivery/tasks/project
-/delivery/tasks/target
+
+*target
+project
