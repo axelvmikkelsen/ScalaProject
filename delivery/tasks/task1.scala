@@ -41,4 +41,15 @@ object Main extends App {
 
     println(recursiveSumList(numarray, 0))
 
+
+    /** 1d **/
+    def nthFib(n:Int) : BigInt = {
+      if (n <= 2) {
+        return 1
+      }
+      return nthFib(n-1) + nthFib(n-2)
+    }
+
+    println(nthFib(10))
+
 }
