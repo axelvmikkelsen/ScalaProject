@@ -2,6 +2,8 @@
 object Main extends App {
 
     /** 1a **/
+    println("a)")
+
     var numarray = new Array[Int](50)
     var output = "["
     var iter = 1
@@ -19,6 +21,7 @@ object Main extends App {
     println(output)
 
     /** 1b **/
+    println("b)")
     def sumList(list:Array[Int]) : Int = {
       var sum:Int = 0
 
@@ -27,10 +30,10 @@ object Main extends App {
       }
       return sum
     }
-    println(sumList(numarray))
-
+    println("For-loop: " + sumList(numarray))
 
     /** 1c **/
+    println("c)")
     def recursiveSumList(list:Array[Int], sum:Int) : Int = {
       var len: Int = list.length
       if (len == 0) {
@@ -39,10 +42,10 @@ object Main extends App {
       return recursiveSumList(list.drop(1), list(0) + sum)
     }
 
-    println(recursiveSumList(numarray, 0))
-
+    println("Recursive: " + recursiveSumList(numarray, 0))
 
     /** 1d **/
+    println("d)")
     def nthFib(n:Int) : BigInt = {
       if (n <= 2) {
         return 1
@@ -50,6 +53,11 @@ object Main extends App {
       return nthFib(n-1) + nthFib(n-2)
     }
 
-    println(nthFib(10))
-
+    println("The 10th Fibonacci number: " + nthFib(10))
+    /**
+      BigInt allocates space for bigger Integers than the normal Int data type. There's
+      still possible to perform operations on BigInt's, but it should only be used
+      when expecting a big Integer. It's basic memory management.
+    **/
+    println("\n")
 }
