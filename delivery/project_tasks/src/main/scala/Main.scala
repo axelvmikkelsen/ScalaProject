@@ -1,5 +1,5 @@
 
-object Main extends App {
+object Main2 extends App {
 
     def thread(body: => Unit): Thread = {
         val t = new Thread {
@@ -8,5 +8,5 @@ object Main extends App {
         t.start
         t
     }
-  
+
 }
