@@ -1,4 +1,3 @@
-
 object Task1Main extends App {
 
     /** 1a **/
