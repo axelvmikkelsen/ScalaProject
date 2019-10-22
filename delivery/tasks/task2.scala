@@ -1,13 +1,23 @@
-<<<<<<< HEAD
-object task2 extends App {
+object Task2Main extends App {
+  /** Task 2a)
+    * A given function is passed to a thread, ready to execute.
+    *
+    * :param fx: The function executed in the thread
+    *
+    * :return: The not yet started thread
+  **/
 
-    // Task 2a)
-    def initThread(function: => Unit): Thread = {
-        val t = new Thread {
-            override def run() = function
-        }
-        return t
+  def threadFunction(fx: Unit) : Thread = {
+    val thread = new Thread {
+      override def run() {
+        fx
+      }
     }
+    return thread;
+  }
+
+  val thread = threadFunction(println("Running thread"));
+  println(s"The thread's name is: $thread \n");
 
     // Task 2b and 2c) 
     /**
@@ -27,17 +37,18 @@ object task2 extends App {
      */
     private var counter: Int = 0
 
-    def increaceCounter(): Unit = this.synchronized /*<--- changed for atomicity */ {
+    def increaseCounter(): Unit =  this.synchronized /*<--- changed for atomicity */ {
         counter += 1
+        println("Incremented the counter\n")
     }
 
-    def readCounter(): Unit = {
-        printf("Counter value is now %d \n", this.counter)
+    def printCounter(): Unit = {
+        println(s"The value of the counter is $counter")
     }
 
-    val thread1 = initThread(increaceCounter())
-    val thread2 = initThread(increaceCounter())
-    val thread3 = initThread(readCounter())
+    val thread1 = threadFunction(increaseCounter())
+    val thread2 = threadFunction(increaseCounter())
+    val thread3 = threadFunction(printCounter())
 
     thread1.start()
     thread2.start()
@@ -79,62 +90,3 @@ class Z {
     }
   }
 }
-=======
-
-object Task2Main extends App {
-
-  /** Task 2a)
-    * A given function is passed to a thread, ready to execute.
-    *
-    * :param fx: The function executed in the thread
-    *
-    * :return: The not yet started thread
-  **/
-
-  def threadFunction(fx: Unit) : Thread = {
-    val thread = new Thread {
-      override def run() {
-        fx
-      }
-    }
-    return thread;
-  }
-
-  val thread = threadFunction(println("Running thread"));
-  println(s"The thread's name is: $thread");
-
-  /** Task 2b)
-    *
-    *
-    *
-    *
-  **/
-
-  private var counter: Int = 0
-  def increaseCounter(): Unit = {
-    counter += 1
-    println("Incremented the counter")
-  }
-
-  def printCounter(): Unit = {
-    println(s"The value of the counter is $counter")
-  }
-
-  val thread1 = threadFunction(increaseCounter())
-  val thread2 = threadFunction(increaseCounter())
-  val thread3 = threadFunction(printCounter())
-
-  thread1.start()
-  thread2.start()
-
-
-  thread3.start()
-
-  /**
-  thread1.join()
-  thread2.join()
-  **/
-
-  //println(s"The counter is $counter")
-}
->>>>>>> 1f608ec0b7c48db27f421d8d613743f071c26f16
