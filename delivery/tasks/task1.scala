@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-
-object task1 extends App {
-=======
-
 object Task1Main extends App {
->>>>>>> 1f608ec0b7c48db27f421d8d613743f071c26f16
 
     /** 1a **/
     println("a)")
