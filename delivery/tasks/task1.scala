@@ -1,5 +1,5 @@
 
-object Main extends App {
+object task1 extends App {
 
     /** 1a **/
     println("a)")
