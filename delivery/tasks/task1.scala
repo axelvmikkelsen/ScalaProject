@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 
 object task1 extends App {
+=======
+
+object Task1Main extends App {
+>>>>>>> 1f608ec0b7c48db27f421d8d613743f071c26f16
 
     /** 1a **/
     println("a)")
@@ -35,8 +40,7 @@ object task1 extends App {
     /** 1c **/
     println("c)")
     def recursiveSumList(list:Array[Int], sum:Int) : Int = {
-      var len: Int = list.length
-      if (len == 0) {
+      if (list.length == 0) {
         return sum
       }
       return recursiveSumList(list.drop(1), list(0) + sum)
