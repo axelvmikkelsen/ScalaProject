@@ -29,13 +29,14 @@ object Task2Main extends App {
   **/
 
   private var counter: Int = 0
-  def increaseCounter(): Unit = {
+  def increaseCounter(): Unit = this.synchronized {
     counter += 1
     println("Incremented the counter")
   }
 
   def printCounter(): Unit = {
-    println(s"The value of the counter is $counter")
+    //println(s"The value of the counter is $counter")
+    printf("The current value of counter is: %d\n", this.counter);
   }
 
   val thread1 = threadFunction(increaseCounter())
