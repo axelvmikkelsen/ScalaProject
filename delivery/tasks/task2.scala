@@ -19,21 +19,21 @@ object Task2Main extends App {
   val thread = threadFunction(println("Running thread"));
   println(s"The thread's name is: $thread \n");
 
-    // Task 2b and 2c) 
+    // Task 2b and 2c)
     /**
-    This phenomenon is called race-condition in programming. 
-    Two or more threads "compete" for the same resource, and the output 
+    This phenomenon is called race-condition in programming.
+    Two or more threads "compete" for the same resource, and the output
     depends on whoever reaches the value first. (Non-deterministic.)
     In this example the "readCounter"-thread might read the counter value before
     the "increaseCounter"-thread reaches it. This can solved by handling the threads
     by .join() method, which tells the threads to complete before the main-thread(the program)
     continuous. And by the use of synchronization, which makes the critical section a mutex.
 
-    An example where it can be problematic is if the program is stuck in a while/for-loop, 
-    with an exit condition. If the two or more threads are not coooperating 
-    (and always racing to change the value), the value might never reach the exit condition, 
-    and we are stuck in an infinite loop. 
-    
+    An example where it can be problematic is if the program is stuck in a while/for-loop,
+    with an exit condition. If the two or more threads are not coooperating
+    (and always racing to change the value), the value might never reach the exit condition,
+    and we are stuck in an infinite loop.
+
      */
     private var counter: Int = 0
 
@@ -63,13 +63,13 @@ object Task2Main extends App {
  // Task 2d)
 /**
 
-A deadlock is a general situation in which two or more executions 
-wait for each other to complete an action before proceeding. 
+A deadlock is a general situation in which two or more executions
+wait for each other to complete an action before proceeding.
 Both threads have access to a mutex value that the other thread needs
 to continue the operation. So they are both locked out, and waiting "forever".
 
 To prevent deadlock a total order of acquiring resources needs to be established.
-As whenever two (or more) threads acquire resources in the same order, 
+As whenever two (or more) threads acquire resources in the same order,
 there is no danger of deadlock.
 
 */
