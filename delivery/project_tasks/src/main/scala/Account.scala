@@ -1,4 +1,4 @@
-import exceptions._
+//import exceptions._
 
 class Account(val bank: Bank, initialBalance: Double) {
 
@@ -22,7 +22,7 @@ class Account(val bank: Bank, initialBalance: Double) {
             case _ => throw return Right("Can not deposit negative amount!")
         }
     }
-    def getBalanceAmount: Double = this.synchronized { balance.amount }
+    def getBalanceAmount(): Double = this.synchronized { balance.amount }
 
     def transferTo(account: Account, amount: Double) = {
         bank addTransactionToQueue (this, account, amount)
